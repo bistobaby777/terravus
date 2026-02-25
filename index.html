@@ -1,1 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terravus | Developing Ecosystems</title>
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+:root {
+    --gold: #d4af37;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 25px;
+    z-index: 1000;
+}
+
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--gold);
+}
+
+.nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 25px;
+    background: rgba(20,20,20,0.95);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 12px 0;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-logo {
+    width: 350px;
+    animation: logoIntro 2.5s ease forwards;
+    opacity: 0;
+    filter: drop-shadow(0 0 20px rgba(212,175,55,0.4));
+}
+
+.tagline {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #aaa;
+    animation: fadeIn 3s ease forwards;
+    opacity: 0;
+}
+
+@keyframes logoIntro {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* SECTIONS */
+.section {
+    padding: 120px 10%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+.section p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.passion-img {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 15px;
+    filter: brightness(80%);
+    transition: 0.5s;
+}
+
+.passion-img:hover {
+    filter: brightness(100%);
+}
+
+/* FOOTER */
+footer {
+    padding: 40px;
+    text-align: center;
+    background: #111;
+    margin-top: 60px;
+    color: #888;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .main-logo {
+        width: 220px;
+    }
+}
+</style>
+
+<script>
+function toggleMenu() {
+    const nav = document.getElementById("navMenu");
+    nav.style.display = nav.style.display === "block" ? "none" : "block";
+}
+
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        const position = section.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        if(position < screenPosition) {
+            section.classList.add('show');
+        }
+    });
+});
+</script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="nav" id="navMenu">
+        <a href="#who">Who We Are</a>
+        <a href="#what">What We Do</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#blog">Blog</a>
+    </div>
+</header>
+
+<section class="hero">
+    <img src="images/logo.png" class="main-logo" alt="Terravus Logo">
+    <p class="tagline">Developing Sustainable Ecosystems for Modern Living</p>
+</section>
+
+<section class="section" id="who">
+    <h2>Who We Are</h2>
+    <p>
+        Terravus is a premium real estate development company focused on building
+        sustainable ecosystems where families thrive and investments grow.
+    </p>
+</section>
+
+<section class="section" id="what">
+    <h2>What We Do</h2>
+    <p>
+        We acquire, plan, and transform land into integrated gated communities,
+        eco-conscious residential layouts, and long-term investment destinations.
+    </p>
+</section>
+
+<section class="section">
+    <h2>Passion At Work</h2>
+    <p>
+        Passion drives every Terravus project. Building ecosystems is responsibility.
+        Every masterplan is designed to elevate lifestyles and create lasting value.
+    </p>
+    <img src="images/passion.jpg" class="passion-img" alt="Eco Development">
+</section>
+
+<section class="section" id="blog">
+    <h2>Blog</h2>
+    <p>Insights on sustainable development and smart investments. Coming soon.</p>
+</section>
+
+<section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@terravus.in<br>Serving Kerala | Expanding Across India</p>
+</section>
+
+<footer>
+    © 2026 Terravus. All Rights Reserved.
+</footer>
+
+</body>
+</html>
