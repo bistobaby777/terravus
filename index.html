@@ -3,224 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terravus | Ecosystems. Elevated.</title>
+<title>Terravus | Ecosystems Beyond Living</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-    background: #000;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+body{
+background:#000;
+color:#fff;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
 }
 
-:root {
-    --gold: #c6a55c;
+:root{
+--gold:#c6a75e;
+}
+
+/* subtle animated background */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 30% 40%,rgba(198,167,94,0.08),transparent 60%);
+animation:moveBg 12s ease-in-out infinite alternate;
+z-index:-1;
+}
+
+@keyframes moveBg{
+0%{transform:translate(0,0);}
+100%{transform:translate(40px,40px);}
 }
 
 /* HEADER */
-
-header {
-    position: fixed;
-    width: 100%;
-    padding: 30px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:30px 60px;
+z-index:1000;
 }
 
-.logo-small {
-    width: 120px;
+.menu{
+color:var(--gold);
+font-size:28px;
+cursor:pointer;
 }
 
-.menu {
-    font-size: 18px;
-    letter-spacing: 2px;
-    cursor: pointer;
+.nav{
+display:none;
+position:absolute;
+top:90px;
+left:60px;
+background:#111;
+padding:40px;
+}
+
+.nav a{
+display:block;
+text-decoration:none;
+color:#fff;
+font-size:18px;
+margin:15px 0;
+letter-spacing:1px;
+}
+
+.nav a:hover{
+color:var(--gold);
 }
 
 /* HERO */
-
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 0 20px;
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 100px;
-    letter-spacing: 12px;
-    font-weight: 700;
+.hero img{
+width:420px;
+animation:fadeZoom 2s ease forwards;
+opacity:0;
 }
 
-.hero p {
-    margin-top: 30px;
-    font-size: 22px;
-    max-width: 700px;
-    color: #bbb;
+.hero h2{
+margin-top:40px;
+font-family:'Playfair Display',serif;
+font-size:36px;
+font-weight:500;
+letter-spacing:3px;
+color:#ccc;
+opacity:0;
+animation:fadeIn 3s ease forwards;
 }
 
-.gold-line {
-    width: 120px;
-    height: 2px;
-    background: var(--gold);
-    margin: 40px auto;
+@keyframes fadeZoom{
+0%{transform:scale(0.85);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeIn{
+to{opacity:1;}
 }
 
 /* SECTIONS */
-
-.section {
-    padding: 160px 12%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
+.section{
+padding:180px 12%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:80px;
+opacity:0;
+transform:translateY(60px);
+transition:all 1.2s ease;
 }
 
-.section.reverse {
-    flex-direction: row-reverse;
+.section.show{
+opacity:1;
+transform:translateY(0);
 }
 
-.section-text {
-    flex: 1;
+.section:nth-child(even){
+flex-direction:row-reverse;
 }
 
-.section-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 60px;
-    margin-bottom: 40px;
+.section img{
+width:50%;
+border-radius:10px;
 }
 
-.section-text p {
-    font-size: 22px;
-    line-height: 1.9;
-    color: #bbb;
+.text{
+width:50%;
 }
 
-.section-img {
-    flex: 1;
+.text h3{
+font-family:'Playfair Display',serif;
+font-size:48px;
+margin-bottom:30px;
+color:var(--gold);
 }
 
-.section-img img {
-    width: 100%;
-    border-radius: 4px;
+.text p{
+font-size:20px;
+line-height:1.9;
+color:#bbb;
 }
 
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 80px;
-    border-top: 1px solid #111;
-    color: #666;
-    font-size: 18px;
+/* footer */
+footer{
+padding:80px;
+text-align:center;
+color:#777;
+font-size:16px;
+letter-spacing:2px;
+border-top:1px solid rgba(198,167,94,0.2);
 }
 
-/* RESPONSIVE */
-
-@media(max-width: 900px) {
-
-.hero h1 {
-    font-size: 60px;
+/* responsive */
+@media(max-width:1000px){
+.section{
+flex-direction:column;
+text-align:center;
 }
-
-.section {
-    flex-direction: column;
-    padding: 120px 8%;
+.section:nth-child(even){
+flex-direction:column;
 }
-
-.section.reverse {
-    flex-direction: column;
+.section img,.text{
+width:100%;
 }
-
-.section-text h2 {
-    font-size: 40px;
+.hero img{
+width:260px;
 }
-
-.section-text p {
-    font-size: 18px;
+.text h3{
+font-size:36px;
 }
-
 }
 </style>
+
+<script>
+function toggleMenu(){
+const nav=document.getElementById("nav");
+nav.style.display=nav.style.display==="block"?"none":"block";
+}
+
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".section").forEach(section=>{
+if(section.getBoundingClientRect().top<window.innerHeight/1.3){
+section.classList.add("show");
+}
+});
+});
+</script>
 </head>
 
 <body>
 
 <header>
-    <img src="images/logo.png" class="logo-small" alt="Terravus">
-    <div class="menu">MENU</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
+<div class="nav" id="nav">
+<a href="#who">WHO WE ARE</a>
+<a href="#what">WHAT WE DO</a>
+<a href="#passion">PASSION AT WORK</a>
+<a href="#contact">CONTACT</a>
+</div>
 </header>
 
 <section class="hero">
-    <h1>TERRAVUS</h1>
-    <div class="gold-line"></div>
-    <p>
-        Building refined ecosystems where visionary investors grow wealth
-        and families experience elevated living.
-    </p>
+<img src="images/logo.png" alt="Terravus Logo">
+<h2>Developing Ecosystems. Elevating Life.</h2>
 </section>
 
-<section class="section">
-    <div class="section-text">
-        <h2>Who We Are</h2>
-        <p>
-            Terravus is a forward-thinking real estate development company
-            committed to crafting sustainable ecosystems.
-            We merge architectural precision, environmental intelligence,
-            and long-term value creation into every project.
-        </p>
-    </div>
-    <div class="section-img">
-        <img src="images/passion.jpg" alt="Terravus Development">
-    </div>
+<section class="section" id="who">
+<img src="images/passion.jpg" alt="">
+<div class="text">
+<h3>Who We Are</h3>
+<p>
+Terravus is an ecosystem-driven real estate development firm
+creating ultra-refined residential environments that balance
+investment intelligence with peaceful family living.
+We design long-term value — not just projects.
+</p>
+</div>
 </section>
 
-<section class="section reverse">
-    <div class="section-text">
-        <h2>What We Do</h2>
-        <p>
-            From strategic land acquisition to master-planned gated communities,
-            Terravus develops environments that balance investment strength
-            with lifestyle excellence.
-            Every square foot is intentional. Every detail is purposeful.
-        </p>
-    </div>
-    <div class="section-img">
-        <img src="images/passion.jpg" alt="Luxury Community">
-    </div>
+<section class="section" id="what">
+<img src="images/passion.jpg" alt="">
+<div class="text">
+<h3>What We Do</h3>
+<p>
+From strategic land acquisition to master-planned gated communities,
+Terravus transforms land into high-value living ecosystems.
+Every development is shaped with architectural precision,
+environmental consciousness, and generational foresight.
+</p>
+</div>
 </section>
 
-<section class="section">
-    <div class="section-text">
-        <h2>Passion At Work</h2>
-        <p>
-            Passion defines our process.
-            We do not merely develop land — we shape living ecosystems.
-            Each project is designed to enhance quality of life,
-            preserve natural harmony, and create generational value.
-        </p>
-    </div>
-    <div class="section-img">
-        <img src="images/passion.jpg" alt="Eco Development">
-    </div>
+<section class="section" id="passion">
+<img src="images/passion.jpg" alt="">
+<div class="text">
+<h3>Passion At Work</h3>
+<p>
+We believe development is responsibility.
+Every green corridor, every plotted layout, every design decision
+is guided by one principle — improve lives while preserving the future.
+That is the Terravus standard.
+</p>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="text">
+<h3>Contact</h3>
+<p>
+info@terravus.in  
+<br><br>
+Serving Kerala. Expanding Across India.
+</p>
+</div>
 </section>
 
 <footer>
-    © 2026 Terravus. Ecosystems. Elevated.
+© 2026 TERRAVUS
 </footer>
 
 </body>
