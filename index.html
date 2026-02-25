@@ -3,47 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terravus | Ecosystems Beyond Living</title>
+<title>Terravus</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden;}
+:root{--gold:#c6a75e;}
 
-body{
-background:#000;
-color:#fff;
-font-family:'Inter',sans-serif;
-overflow-x:hidden;
-}
-
-:root{
---gold:#c6a75e;
-}
-
-/* Subtle animated luxury background */
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle at 30% 40%,rgba(198,167,94,0.08),transparent 60%);
-animation:moveBg 14s ease-in-out infinite alternate;
-z-index:-1;
-}
-
-@keyframes moveBg{
-0%{transform:translate(0,0);}
-100%{transform:translate(60px,60px);}
-}
-
-/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -77,9 +45,7 @@ margin:18px 0;
 letter-spacing:2px;
 }
 
-.nav a:hover{
-color:var(--gold);
-}
+.nav a:hover{color:var(--gold);}
 
 /* HERO */
 .hero{
@@ -92,27 +58,17 @@ text-align:center;
 }
 
 .hero img{
-width:670px;
+width:680px;
 opacity:0;
 filter:drop-shadow(0 0 40px rgba(198,167,94,0.25));
-animation:
-logoReveal 3s cubic-bezier(.16,.84,.44,1) forwards,
+animation:logoReveal 3s cubic-bezier(.16,.84,.44,1) forwards,
 floatLogo 6s ease-in-out 3s infinite alternate;
 }
 
 @keyframes logoReveal{
-0%{
-transform:scale(0.7) translateY(60px);
-opacity:0;
-}
-60%{
-transform:scale(1.05) translateY(0);
-opacity:1;
-}
-100%{
-transform:scale(1);
-opacity:1;
-}
+0%{transform:scale(0.7) translateY(60px);opacity:0;}
+60%{transform:scale(1.05) translateY(0);opacity:1;}
+100%{transform:scale(1);opacity:1;}
 }
 
 @keyframes floatLogo{
@@ -120,31 +76,13 @@ opacity:1;
 100%{transform:translateY(-18px);}
 }
 
-.hero h2{
-margin-top:60px;
-font-family:'Playfair Display',serif;
-font-size:42px;
-font-weight:500;
-letter-spacing:4px;
-color:#d0d0d0;
-opacity:0;
-animation:fadeIn 4s ease forwards;
-}
-
-@keyframes fadeIn{
-to{opacity:1;}
-}
-
-/* SECTIONS */
+/* Passion Section */
 .section{
-padding:200px 12%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:100px;
+padding:220px 15%;
+text-align:center;
 opacity:0;
 transform:translateY(80px);
-transition:all 1.2s ease;
+transition:1.2s ease;
 }
 
 .section.show{
@@ -152,57 +90,24 @@ opacity:1;
 transform:translateY(0);
 }
 
-.section:nth-child(even){
-flex-direction:row-reverse;
-}
-
-.section img{
-width:50%;
-border-radius:12px;
-filter:brightness(85%);
-transition:0.5s;
-}
-
-.section img:hover{
-filter:brightness(100%);
-}
-
-.text{
-width:50%;
-}
-
-.text h3{
+.section h2{
 font-family:'Playfair Display',serif;
-font-size:56px;
-margin-bottom:40px;
+font-size:60px;
 color:var(--gold);
-letter-spacing:2px;
+margin-bottom:50px;
 }
 
-.text p{
+.section p{
 font-size:22px;
 line-height:2;
 color:#bdbdbd;
+max-width:900px;
+margin:auto;
 }
 
-/* Responsive */
 @media(max-width:1000px){
-.section{
-flex-direction:column;
-text-align:center;
-}
-.section:nth-child(even){
-flex-direction:column;
-}
-.section img,.text{
-width:100%;
-}
-.hero img{
-width:420px;
-}
-.text h3{
-font-size:40px;
-}
+.hero img{width:420px;}
+.section h2{font-size:42px;}
 }
 </style>
 
@@ -227,52 +132,24 @@ section.classList.add("show");
 <header>
 <div class="menu" onclick="toggleMenu()">☰</div>
 <div class="nav" id="nav">
-<a href="#who">WHO WE ARE</a>
-<a href="#what">WHAT WE DO</a>
-<a href="#passion">PASSION AT WORK</a>
+<a href="who.html">WHO WE ARE</a>
+<a href="what.html">WHAT WE DO</a>
+<a href="contact.html">CONTACT US</a>
 </div>
 </header>
 
 <section class="hero">
 <img src="images/logo.png" alt="Terravus Logo">
-<h2>Developing Ecosystems. Elevating Life.</h2>
 </section>
 
-<section class="section" id="who">
-<img src="images/passion.jpg" alt="">
-<div class="text">
-<h3>Who We Are</h3>
+<section class="section">
+<h2>Passion At Work</h2>
 <p>
-Terravus is an ecosystem-driven real estate development firm creating
-ultra-refined residential environments that balance investment intelligence
-with peaceful family living. We build enduring value — not temporary projects.
+We believe development is responsibility. Every ecosystem we build
+is designed to elevate life quality while preserving long-term value.
+Terravus blends architectural precision, environmental consciousness,
+and investment intelligence into every masterplan.
 </p>
-</div>
-</section>
-
-<section class="section" id="what">
-<img src="images/passion.jpg" alt="">
-<div class="text">
-<h3>What We Do</h3>
-<p>
-From strategic land acquisition to master-planned gated communities,
-Terravus transforms land into high-value living ecosystems.
-Every development is shaped with architectural precision,
-environmental consciousness, and generational foresight.
-</p>
-</div>
-</section>
-
-<section class="section" id="passion">
-<img src="images/passion.jpg" alt="">
-<div class="text">
-<h3>Passion At Work</h3>
-<p>
-We believe development is responsibility. Every green corridor,
-every plotted layout, every design decision is guided by one principle —
-improve lives while preserving the future. That is the Terravus standard.
-</p>
-</div>
 </section>
 
 </body>
