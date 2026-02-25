@@ -25,7 +25,7 @@ overflow-x:hidden;
 --gold:#c6a75e;
 }
 
-/* subtle animated background */
+/* Subtle animated luxury background */
 body::before{
 content:"";
 position:fixed;
@@ -34,13 +34,13 @@ left:0;
 width:100%;
 height:100%;
 background:radial-gradient(circle at 30% 40%,rgba(198,167,94,0.08),transparent 60%);
-animation:moveBg 12s ease-in-out infinite alternate;
+animation:moveBg 14s ease-in-out infinite alternate;
 z-index:-1;
 }
 
 @keyframes moveBg{
 0%{transform:translate(0,0);}
-100%{transform:translate(40px,40px);}
+100%{transform:translate(60px,60px);}
 }
 
 /* HEADER */
@@ -49,7 +49,7 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:30px 60px;
+padding:35px 70px;
 z-index:1000;
 }
 
@@ -62,19 +62,19 @@ cursor:pointer;
 .nav{
 display:none;
 position:absolute;
-top:90px;
-left:60px;
+top:100px;
+left:70px;
 background:#111;
-padding:40px;
+padding:45px;
 }
 
 .nav a{
 display:block;
 text-decoration:none;
 color:#fff;
-font-size:18px;
-margin:15px 0;
-letter-spacing:1px;
+font-size:20px;
+margin:18px 0;
+letter-spacing:2px;
 }
 
 .nav a:hover{
@@ -92,25 +92,43 @@ text-align:center;
 }
 
 .hero img{
-width:420px;
-animation:fadeZoom 2s ease forwards;
+width:670px;
 opacity:0;
+filter:drop-shadow(0 0 40px rgba(198,167,94,0.25));
+animation:
+logoReveal 3s cubic-bezier(.16,.84,.44,1) forwards,
+floatLogo 6s ease-in-out 3s infinite alternate;
+}
+
+@keyframes logoReveal{
+0%{
+transform:scale(0.7) translateY(60px);
+opacity:0;
+}
+60%{
+transform:scale(1.05) translateY(0);
+opacity:1;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes floatLogo{
+0%{transform:translateY(0);}
+100%{transform:translateY(-18px);}
 }
 
 .hero h2{
-margin-top:40px;
+margin-top:60px;
 font-family:'Playfair Display',serif;
-font-size:36px;
+font-size:42px;
 font-weight:500;
-letter-spacing:3px;
-color:#ccc;
+letter-spacing:4px;
+color:#d0d0d0;
 opacity:0;
-animation:fadeIn 3s ease forwards;
-}
-
-@keyframes fadeZoom{
-0%{transform:scale(0.85);opacity:0;}
-100%{transform:scale(1);opacity:1;}
+animation:fadeIn 4s ease forwards;
 }
 
 @keyframes fadeIn{
@@ -119,13 +137,13 @@ to{opacity:1;}
 
 /* SECTIONS */
 .section{
-padding:180px 12%;
+padding:200px 12%;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:80px;
+gap:100px;
 opacity:0;
-transform:translateY(60px);
+transform:translateY(80px);
 transition:all 1.2s ease;
 }
 
@@ -140,7 +158,13 @@ flex-direction:row-reverse;
 
 .section img{
 width:50%;
-border-radius:10px;
+border-radius:12px;
+filter:brightness(85%);
+transition:0.5s;
+}
+
+.section img:hover{
+filter:brightness(100%);
 }
 
 .text{
@@ -149,28 +173,19 @@ width:50%;
 
 .text h3{
 font-family:'Playfair Display',serif;
-font-size:48px;
-margin-bottom:30px;
+font-size:56px;
+margin-bottom:40px;
 color:var(--gold);
+letter-spacing:2px;
 }
 
 .text p{
-font-size:20px;
-line-height:1.9;
-color:#bbb;
+font-size:22px;
+line-height:2;
+color:#bdbdbd;
 }
 
-/* footer */
-footer{
-padding:80px;
-text-align:center;
-color:#777;
-font-size:16px;
-letter-spacing:2px;
-border-top:1px solid rgba(198,167,94,0.2);
-}
-
-/* responsive */
+/* Responsive */
 @media(max-width:1000px){
 .section{
 flex-direction:column;
@@ -183,10 +198,10 @@ flex-direction:column;
 width:100%;
 }
 .hero img{
-width:260px;
+width:420px;
 }
 .text h3{
-font-size:36px;
+font-size:40px;
 }
 }
 </style>
@@ -215,7 +230,6 @@ section.classList.add("show");
 <a href="#who">WHO WE ARE</a>
 <a href="#what">WHAT WE DO</a>
 <a href="#passion">PASSION AT WORK</a>
-<a href="#contact">CONTACT</a>
 </div>
 </header>
 
@@ -229,10 +243,9 @@ section.classList.add("show");
 <div class="text">
 <h3>Who We Are</h3>
 <p>
-Terravus is an ecosystem-driven real estate development firm
-creating ultra-refined residential environments that balance
-investment intelligence with peaceful family living.
-We design long-term value — not just projects.
+Terravus is an ecosystem-driven real estate development firm creating
+ultra-refined residential environments that balance investment intelligence
+with peaceful family living. We build enduring value — not temporary projects.
 </p>
 </div>
 </section>
@@ -255,28 +268,12 @@ environmental consciousness, and generational foresight.
 <div class="text">
 <h3>Passion At Work</h3>
 <p>
-We believe development is responsibility.
-Every green corridor, every plotted layout, every design decision
-is guided by one principle — improve lives while preserving the future.
-That is the Terravus standard.
+We believe development is responsibility. Every green corridor,
+every plotted layout, every design decision is guided by one principle —
+improve lives while preserving the future. That is the Terravus standard.
 </p>
 </div>
 </section>
-
-<section class="section" id="contact">
-<div class="text">
-<h3>Contact</h3>
-<p>
-info@terravus.in  
-<br><br>
-Serving Kerala. Expanding Across India.
-</p>
-</div>
-</section>
-
-<footer>
-© 2026 TERRAVUS
-</footer>
 
 </body>
 </html>
